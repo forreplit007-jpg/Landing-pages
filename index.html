@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rainbow Clove Dental Clinic</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              serif: ['"Playfair Display"', 'serif'],
+              sans: ['"DM Sans"', 'sans-serif'],
+            },
+            colors: {
+              brand: {
+                pink: '#FFCDC9',
+                green: '#E3FDC5',
+                darkPink: '#F2B6B0',
+                text: '#4A4A4A',
+                accent: '#E8847D',
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: 'DM Sans', sans-serif;
+        color: #4A4A4A;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'Playfair Display', serif;
+      }
+      /* Hide scrollbar for chat window */
+      .no-scrollbar::-webkit-scrollbar {
+          display: none;
+      }
+      .no-scrollbar {
+          -ms-overflow-style: none;  /* IE and Edge */
+          scrollbar-width: none;  /* Firefox */
+      }
+
+      /* Animated Star Button Styles */
+      .btn-star {
+        position: relative;
+        padding: 12px 35px;
+        background: #fec195;
+        font-size: 17px;
+        font-weight: 500;
+        color: #181818;
+        border: 3px solid #fec195;
+        border-radius: 8px;
+        box-shadow: 0 0 0 #fec1958c;
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+        isolation: isolate; /* Creates a stacking context so stars don't hide behind page bg */
+      }
+
+      .btn-star .star-1 {
+        position: absolute;
+        top: 20%;
+        left: 20%;
+        width: 25px;
+        height: auto;
+        filter: drop-shadow(0 0 0 #fffdef);
+        z-index: -5;
+        transition: all 1s cubic-bezier(0.05, 0.83, 0.43, 0.96);
+        pointer-events: none;
+      }
+
+      .btn-star .star-2 {
+        position: absolute;
+        top: 45%;
+        left: 45%;
+        width: 15px;
+        height: auto;
+        filter: drop-shadow(0 0 0 #fffdef);
+        z-index: -5;
+        transition: all 1s cubic-bezier(0, 0.4, 0, 1.01);
+        pointer-events: none;
+      }
+
+      .btn-star .star-3 {
+        position: absolute;
+        top: 40%;
+        left: 40%;
+        width: 5px;
+        height: auto;
+        filter: drop-shadow(0 0 0 #fffdef);
+        z-index: -5;
+        transition: all 1s cubic-bezier(0, 0.4, 0, 1.01);
+        pointer-events: none;
+      }
+
+      .btn-star .star-4 {
+        position: absolute;
+        top: 20%;
+        left: 40%;
+        width: 8px;
+        height: auto;
+        filter: drop-shadow(0 0 0 #fffdef);
+        z-index: -5;
+        transition: all 0.8s cubic-bezier(0, 0.4, 0, 1.01);
+        pointer-events: none;
+      }
+
+      .btn-star .star-5 {
+        position: absolute;
+        top: 25%;
+        left: 45%;
+        width: 15px;
+        height: auto;
+        filter: drop-shadow(0 0 0 #fffdef);
+        z-index: -5;
+        transition: all 0.6s cubic-bezier(0, 0.4, 0, 1.01);
+        pointer-events: none;
+      }
+
+      .btn-star .star-6 {
+        position: absolute;
+        top: 5%;
+        left: 50%;
+        width: 5px;
+        height: auto;
+        filter: drop-shadow(0 0 0 #fffdef);
+        z-index: -5;
+        transition: all 0.8s ease;
+        pointer-events: none;
+      }
+
+      .btn-star:hover {
+        background: transparent;
+        color: #fec195;
+        box-shadow: 0 0 25px #fec1958c;
+      }
+
+      .btn-star:hover .star-1 {
+        position: absolute;
+        top: -80%;
+        left: -30%;
+        width: 25px;
+        height: auto;
+        filter: drop-shadow(0 0 10px #fffdef);
+        z-index: 2;
+      }
+
+      .btn-star:hover .star-2 {
+        position: absolute;
+        top: -25%;
+        left: 10%;
+        width: 15px;
+        height: auto;
+        filter: drop-shadow(0 0 10px #fffdef);
+        z-index: 2;
+      }
+
+      .btn-star:hover .star-3 {
+        position: absolute;
+        top: 55%;
+        left: 25%;
+        width: 5px;
+        height: auto;
+        filter: drop-shadow(0 0 10px #fffdef);
+        z-index: 2;
+      }
+
+      .btn-star:hover .star-4 {
+        position: absolute;
+        top: 30%;
+        left: 80%;
+        width: 8px;
+        height: auto;
+        filter: drop-shadow(0 0 10px #fffdef);
+        z-index: 2;
+      }
+
+      .btn-star:hover .star-5 {
+        position: absolute;
+        top: 25%;
+        left: 115%;
+        width: 15px;
+        height: auto;
+        filter: drop-shadow(0 0 10px #fffdef);
+        z-index: 2;
+      }
+
+      .btn-star:hover .star-6 {
+        position: absolute;
+        top: 5%;
+        left: 60%;
+        width: 5px;
+        height: auto;
+        filter: drop-shadow(0 0 10px #fffdef);
+        z-index: 2;
+      }
+
+      .btn-star .fil0 {
+        fill: #fffdef;
+      }
+
+      /* Slide Button Styles */
+      .btn-slide {
+        display: inline-block;
+        border-radius: 7px;
+        border: none;
+        background: var(--btn-bg, #1875FF);
+        color: var(--btn-text, white);
+        font-family: inherit;
+        text-align: center;
+        font-size: 17px;
+        box-shadow: 0px 14px 56px -11px var(--btn-shadow, #1875FF);
+        /* width: 10em; Removed fixed width to allow flex control */
+        min-width: 10em;
+        padding: 1em;
+        transition: all 0.4s;
+        cursor: pointer;
+      }
+
+      .btn-slide span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.4s;
+      }
+
+      .btn-slide span:after {
+        content: attr(data-hover);
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: -20px;
+        transition: 0.7s;
+        white-space: nowrap;
+      }
+
+      .btn-slide:hover span {
+        padding-right: 3.55em;
+      }
+
+      .btn-slide:hover span:after {
+        opacity: 1;
+        right: 0;
+      }
+
+      /* Hero Entry Animation */
+      @keyframes slideUpFade {
+        0% {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      .animate-hero-entry {
+        animation: slideUpFade 0.8s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
+      }
+
+      /* Floating Animation */
+      @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-20px); }
+        100% { transform: translateY(0px); }
+      }
+      .animate-float {
+        animation: float 6s ease-in-out infinite;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react-dom": "https://aistudiocdn.com/react-dom@^19.2.0",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
