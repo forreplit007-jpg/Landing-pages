@@ -30,11 +30,6 @@ export const streamChatResponse = async (
   try {
     const ai = getGeminiClient();
     
-    // Convert history to the format expected by the SDK if needed, 
-    // but for simple turn-based we can just rely on the chat session structure.
-    // The SDK handles history within a Chat session object usually, 
-    // but here we will re-instantiate for stateless simplicity or maintain a session object.
-    
     // Best practice with this SDK: Create a chat session.
     const chat = ai.chats.create({
       model: 'gemini-2.5-flash',
@@ -58,5 +53,35 @@ export const streamChatResponse = async (
   } catch (error) {
     console.error("Gemini Error:", error);
     throw error;
+  }
+};
+
+export const generateBookingConfirmation = async (
+  name: string,
+  service: string,
+  date: string,
+  time: string,
+  concerns: string
+) => {
+  try {
+    const ai = getGeminiClient();
+    const prompt = `
+      You are the receptionist at Rainbow Clove Dental.
+      A patient named ${name} has just requested to book a ${service} on ${date} at ${time}.
+      They mentioned these concerns: "${concerns || 'None'}".
+      Write a short, warm, comforting confirmation message (max 30 words).
+      If they mentioned concerns (like pain or anxiety), briefly reassure them.
+      Do not mention calling them, just confirm the request is received.
+    `;
+
+    const response = await ai.models.generateContent({
+      model: 'gemini-2.5-flash',
+      contents: prompt,
+    });
+    
+    return response.text;
+  } catch (error) {
+    console.error("Confirmation Generation Error:", error);
+    return "Thank you! Your appointment request has been received.";
   }
 };
